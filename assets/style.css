@@ -53,8 +53,32 @@ button {
     flex-wrap: wrap;
 }
 
-.quizBox {
+#quizBox {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+.input {
+    background-color: white;
+    padding: .7em;
+}
+
+.submitButton {
+    background-color: aqua;
+    margin-top: 15px;
+    padding: .7em;
+}
+
+.leaderboard {
+    color: gold;
+    list-style: none;
+}
+
+.end {
+    display: flex;
+    flex-direction: row;
+    margin-top: 1em;
+    padding: .7em;
+    background-color: rgb(155, 42, 165);
 }
