@@ -8,7 +8,7 @@ var leaderboardStorage = []
 
 
 // Creates the welcome message and start button
-questionHeader.textContent = 'Welcome to the coding quiz!';
+questionHeader.textContent = 'Press Start to Begin';
 startButton.textContent = 'Start';
 quizAnswersBox.appendChild(startButton);
 startButton.addEventListener('click', startQuiz);
@@ -95,7 +95,7 @@ function questionGenerator() {
                     falseAnswers++;
                     console.log('Incorrect: ' + falseAnswers);
                     //Credit given to James Batcheller for the following line
-                    time -= 3
+                    time - 3
                 };
 
                 //Remove question from header and answerChoiceButtons

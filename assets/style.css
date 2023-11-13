@@ -1,5 +1,5 @@
 * {
-    background-color: green;
+    background-color: rgb(38, 78, 73);
     margin: 0;
     padding: 0;
 }
@@ -9,6 +9,10 @@ body {
     flex-direction: column;
     margin-left: auto;
     margin-right: auto;
+}
+
+main {
+    height: 100vh;
 }
 
 header {
@@ -33,6 +37,7 @@ h2 {
     justify-content: center;
     width: 100%;
     margin-bottom: 20px;
+    color: white;
 
 }
 
@@ -42,6 +47,11 @@ button {
     display: flex;
     justify-content: center;
     padding: 0 10px 0 10px;
+}
+
+button:hover {
+    box-shadow: inset 0px 0px 4px rgb(102, 205, 236), 0 0 7px rgb(102, 144, 236);
+
 }
 
 #quizAnswers {
