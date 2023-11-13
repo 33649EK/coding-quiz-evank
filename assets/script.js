@@ -20,6 +20,7 @@ function startQuiz(event) {
     questionHeader.textContent = '';
     quizAnswersBox.removeChild(startButton);
     questionGenerator();
+    startTimer();
 };
 
 
@@ -95,7 +96,7 @@ function questionGenerator() {
                     falseAnswers++;
                     console.log('Incorrect: ' + falseAnswers);
 
-                    time - 3
+                    time -= 3
                 };
 
                 //Remove question from header and answerChoiceButtons
@@ -178,6 +179,7 @@ function questionGenerator() {
                     currentQuestion = 0
                     quizAnswersBox.innerHTML = ''
                     questionGenerator()
+                    startTimer();
                 })
 
                 const clearHighScore = document.createElement('button');
@@ -196,6 +198,12 @@ function questionGenerator() {
         quizFinale();
     }
 
+
+    // if (time > 0) {
+    //     startTimer()
+    // }
+
+}
     function startTimer() {
         // Following taken from class repo then modified
         var timerInterval = setInterval(function () {
@@ -216,10 +224,3 @@ function questionGenerator() {
         currentQuestion = questions.length
         questionGenerator()
     }
-
-
-    if (time > 0) {
-        startTimer()
-    }
-
-}
