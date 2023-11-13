@@ -12,7 +12,7 @@ questionHeader.textContent = 'Welcome to the coding quiz!';
 startButton.textContent = 'Start';
 quizAnswersBox.appendChild(startButton);
 startButton.addEventListener('click', startQuiz);
-
+var time = 30
 // Removes existing text and start button
 //Starts the quiz function
 function startQuiz(event) {
@@ -32,9 +32,9 @@ function startQuiz(event) {
 // Code inspiration taken from Jay's office hour explanation
 var questions = [
     {
-        title: 'Question 1: What is a Pineapple?',
-        choices: ['A vegetable', 'A fruit', 'A fungus', 'An animal'],
-        answer: 'A fruit'
+        title: 'What is JavaScript used for?',
+        choices: ['Formatting', 'Interactibility', 'Basic content',],
+        answer: 'Interactibility'
     },
     {
         title: 'Question 2: What is a Boolean?',
@@ -42,14 +42,15 @@ var questions = [
         answer: 'A true/false variable'
     },
     {
-        title: 'Question 3: What is an object in JavaScript?',
-        choices: ['A type of bean', 'A true/false variable', 'A skinny ghost'],
-        answer: 'A true/false variable'
+        title: 'Question 3: What is CSS?',
+        choices: ['A language used for styling webpages', 'A programming language', 'A pain in the butt', 'All of the above'],
+        answer: 'A language used for styling webpages',
+        answer2: 'A pain in the butt'
     },
     {
-        title: 'Question 4: What is a Boolean?',
-        choices: ['A type of bean', 'A true/false variable', 'A skinny ghost'],
-        answer: 'A true/false variable'
+        title: 'Question 4: Is HTML a programming language?',
+        choices: ['Yes', 'No',],
+        answer: 'No'
     }
 ];
 
@@ -59,7 +60,7 @@ var currentQuestion = 0;
 
 function questionGenerator() {
 
-    var time = 10
+
 
     var questionData = questions[currentQuestion];
 
@@ -87,14 +88,14 @@ function questionGenerator() {
 
                 console.log(answerChoice);
 
-                if (answerChoice === questionData.answer) {
+                if (answerChoice === questionData.answer || answerChoice === questionData.answer2) {
                     correctAnswers++;
                     console.log('Correct: ' + correctAnswers);
                 } else {
                     falseAnswers++;
                     console.log('Incorrect: ' + falseAnswers);
                     //Credit given to James Batcheller for the following line
-                    time -= 5
+                    time -= 3
                 };
 
                 //Remove question from header and answerChoiceButtons
@@ -109,10 +110,9 @@ function questionGenerator() {
 
     } else {
 
-
+        document.querySelector('#timer').textContent = 'The quiz is over!'
         questionHeader.textContent = '';
         quizAnswersBox.innerHTML = '';
-        time = 25
 
 
         function quizFinale() {
@@ -172,6 +172,7 @@ function questionGenerator() {
 
                 restartButton.addEventListener('click', function (event) {
                     event.preventDefault()
+                    time = 30
                     correctAnswers = 0
                     falseAnswers = 0
                     currentQuestion = 0
@@ -187,7 +188,8 @@ function questionGenerator() {
                 clearHighScore.addEventListener('click', function (event) {
                     event.preventDefault()
                     leaderboardStorage = []
-                    questionHeader.textContent = 'High Scores Cleared!'
+                    quizAnswersBox.innerHTML = ''
+                    quizAnswersBox.appendChild(restartButton)
                 })
             }
         }
@@ -215,7 +217,10 @@ function questionGenerator() {
         currentQuestion = questions.length
         questionGenerator()
     }
-    //startTimer()
 
+
+    if (time > 0) {
+        startTimer()
+    }
 
 }
