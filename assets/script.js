@@ -58,9 +58,9 @@ console.log(questions.length);
 
 var currentQuestion = 0;
 
+
+
 function questionGenerator() {
-
-
 
     var questionData = questions[currentQuestion];
 
@@ -94,7 +94,7 @@ function questionGenerator() {
                 } else {
                     falseAnswers++;
                     console.log('Incorrect: ' + falseAnswers);
-                    //Credit given to James Batcheller for the following line
+
                     time - 3
                 };
 
@@ -117,7 +117,7 @@ function questionGenerator() {
 
         function quizFinale() {
             questionHeader.textContent = 'You got ' + correctAnswers + ' out of ' + questions.length + ' answers correct!';
-
+            time = 0
             //Create a form
             const form = document.createElement('form');
 
@@ -207,7 +207,6 @@ function questionGenerator() {
                 clearInterval(timerInterval);
 
                 endQuiz()
-                //Timer still firing after clear interval???
             }
 
         }, 1000);
