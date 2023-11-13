@@ -12,7 +12,7 @@ questionHeader.textContent = 'Press Start to Begin';
 startButton.textContent = 'Start';
 quizAnswersBox.appendChild(startButton);
 startButton.addEventListener('click', startQuiz);
-var time = 30
+var time = 25;
 // Removes existing text and start button
 //Starts the quiz function
 function startQuiz(event) {
@@ -22,13 +22,6 @@ function startQuiz(event) {
     questionGenerator();
     startTimer();
 };
-
-
-
-
-
-
-
 
 // Code inspiration taken from Jay's office hour explanation
 var questions = [
@@ -52,14 +45,17 @@ var questions = [
         title: 'Question 4: Is HTML a programming language?',
         choices: ['Yes', 'No',],
         answer: 'No'
-    }
+    },
+    {
+        title: 'Question 5: What is JavaScript primarily used for?',
+        choices: ['Building web applications', 'Making video games', 'Building Non-web based applications'],
+        answer: 'Building web applications'
+    }   
 ];
 
 console.log(questions.length);
 
 var currentQuestion = 0;
-
-
 
 function questionGenerator() {
 
@@ -173,7 +169,7 @@ function questionGenerator() {
 
                 restartButton.addEventListener('click', function (event) {
                     event.preventDefault()
-                    time = 30
+                    time = 25
                     correctAnswers = 0
                     falseAnswers = 0
                     currentQuestion = 0
@@ -197,13 +193,10 @@ function questionGenerator() {
         }
         quizFinale();
     }
-
-
-    // if (time > 0) {
-    //     startTimer()
-    // }
-
 }
+
+
+
     function startTimer() {
         // Following taken from class repo then modified
         var timerInterval = setInterval(function () {
